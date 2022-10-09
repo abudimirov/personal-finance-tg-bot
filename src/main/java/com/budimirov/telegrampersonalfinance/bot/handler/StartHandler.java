@@ -28,16 +28,12 @@ public class StartHandler implements Handler {
         // Welcoming user
         SendMessage welcomeMessage = createMessageTemplate(user);
         welcomeMessage.setText(String.format(
-                "Hola! I'm *%s*%nI am here to help you learn Java", botUsername
+                "Привет, я *%s*%nЯ помогу тебе учитывать свои расходы и доходы в простом чате", botUsername
         ));
-        // Asking to input name
-        SendMessage registrationMessage = createMessageTemplate(user);
-        registrationMessage.setText("In order to start our journey tell me your name");
-        // Changing user state to "awaiting for name input"
         user.setBotState(State.ENTER_NAME);
         userRepository.save(user);
 
-        return List.of(welcomeMessage, registrationMessage);
+        return List.of(welcomeMessage);
     }
 
     @Override

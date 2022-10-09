@@ -24,28 +24,12 @@ public class User extends AbstractBaseEntity {
     @NotNull
     private Long chatId;
 
-    @Column(name = "name", unique = true, nullable = false)
-    @NotBlank
-    private String name;
-
-    @Column(name = "score", nullable = false)
-    @NotNull
-    private Integer score;
-
-    @Column(name = "high_score", nullable = false)
-    @NotNull
-    private Integer highScore;
-
     @Column(name = "bot_state", nullable = false)
     @NotBlank
     private State botState;
 
-    // Конструктор нужен для создания нового пользователя (а может и нет? :))
     public User(Long chatId) {
         this.chatId = chatId;
-        this.name = String.valueOf(chatId);
-        this.score = 0;
-        this.highScore = 0;
         this.botState = State.START;
     }
 }

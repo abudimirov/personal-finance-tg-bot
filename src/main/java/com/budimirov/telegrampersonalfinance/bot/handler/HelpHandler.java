@@ -11,7 +11,6 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
-import static com.budimirov.telegrampersonalfinance.bot.handler.RegistrationHandler.NAME_CHANGE;
 import static com.budimirov.telegrampersonalfinance.util.TelegramUtil.createInlineKeyboardButton;
 import static com.budimirov.telegrampersonalfinance.util.TelegramUtil.createMessageTemplate;
 
@@ -24,12 +23,12 @@ public class HelpHandler implements Handler {
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
 
         List<InlineKeyboardButton> inlineKeyboardButtonsRowOne = List.of(
-                createInlineKeyboardButton("Change name", NAME_CHANGE));
+                createInlineKeyboardButton("\uD83D\uDCC8 Добавить доход", "/add_income"),
+                createInlineKeyboardButton("\uD83D\uDCC9 Добавить расход", "/add_expense"));
 
         inlineKeyboardMarkup.setKeyboard(List.of(inlineKeyboardButtonsRowOne));
         final var messageTemplate = createMessageTemplate(user);
-        messageTemplate.setText(String.format(
-                "You've asked for help %s? Here it comes!", user.getName()));
+        messageTemplate.setText("Выберите одно из следующих действий");
         messageTemplate.setReplyMarkup(inlineKeyboardMarkup);
         return List.of(messageTemplate);
     }
