@@ -1,0 +1,13 @@
+bot:
+  name: PersonalFinanceTelegramBot
+  token: 5693722646:AAFEpwZLugL4O8u3lfN-BdXhfjbJLCVnvxc
+spring:
+  datasource:
+    url: jdbc:postgresql://ec2-99-81-137-11.eu-west-1.compute.amazonaws.com:5432/d1ravf85qrj83t?user=rvjrlzmnkjmzuu&password=8bf9b5a44c3bf2f236a2f37ea3acbd05a14f64f8711d596c866ebdb77b13c260
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: never
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
